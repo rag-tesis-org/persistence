@@ -40,6 +40,11 @@ class StaticPHPDriver implements MappingDriver
         $className::loadMetadata($metadata);
     }
 
+    public function supportsClass(string $className): bool
+    {
+        return method_exists($className, 'loadMetadata');
+    }
+
     public function isTransient(string $className): bool
     {
         return ! method_exists($className, 'loadMetadata');
