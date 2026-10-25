@@ -125,6 +125,11 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
         return $service;
     }
 
+    public function hasManagerForClass(string $class): bool
+    {
+        return $this->getManagerForClass($class) !== null;
+    }
+
     public function getManagerForClass(string $class): ObjectManager|null
     {
         if ($this->proxyInterfaceName !== null) {
