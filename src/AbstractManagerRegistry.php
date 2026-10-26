@@ -206,6 +206,26 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
         return $this->getManager($name);
     }
 
+    /**
+     * Resets all the object managers, in registration order, and returns the new instances keyed by name.
+     *
+     * If resetting one manager fails, the exception is propagated and the following managers are not reset.
+     *
+     * @return array<string, ObjectManager>
+     */
+    public function resetAllManagers(): array
+    {
+        $managers = [];
+
+        foreach ($this->managers as $name => $id) {
+            $this->resetService($id);
+
+            $managers[$name] = $this->getManager($name);
+        }
+
+        return $managers;
+    }
+
     /** @phpstan-param class-string $persistentObject */
     private function selectManager(
         string $persistentObject,
