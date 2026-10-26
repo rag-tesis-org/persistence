@@ -157,6 +157,46 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
     }
 
     /**
+     * Returns all the object managers that manage the given class, keyed by name, in registration order.
+     *
+     * Uses the same resolution as getManagerForClass(), including proxy classes.
+     *
+     * @return array<string, ObjectManager>
+     */
+    public function getManagersForClass(string $class): array
+    {
+        if ($this->proxyInterfaceName !== null) {
+            $proxyClass = new ReflectionClass($class);
+            if ($proxyClass->isAnonymous()) {
+                return [];
+            }
+
+            if ($proxyClass->implementsInterface($this->proxyInterfaceName)) {
+                $parentClass = $proxyClass->getParentClass();
+
+                if ($parentClass === false) {
+                    return [];
+                }
+
+                $class = $parentClass->getName();
+            }
+        }
+
+        $managers = [];
+
+        foreach ($this->managers as $name => $id) {
+            $manager = $this->getService($id);
+            assert($manager instanceof ObjectManager);
+
+            if (! $manager->getMetadataFactory()->isTransient($class)) {
+                $managers[$name] = $manager;
+            }
+        }
+
+        return $managers;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function getManagerNames(): array
