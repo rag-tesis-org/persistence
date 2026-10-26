@@ -131,6 +131,21 @@ abstract class FileDriver implements MappingDriver
     }
 
     /**
+     * Returns the class names whose mapping elements are currently held in the class cache,
+     * in insertion order. Returns an empty list if the cache has not been initialized.
+     *
+     * @return list<class-string>
+     */
+    public function getCachedClassNames(): array
+    {
+        if ($this->classCache === null) {
+            return [];
+        }
+
+        return array_keys($this->classCache);
+    }
+
+    /**
      * Loads a mapping file with the given name and returns a map
      * from class/entity names to their corresponding file driver elements.
      *
