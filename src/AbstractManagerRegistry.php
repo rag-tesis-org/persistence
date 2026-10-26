@@ -125,6 +125,16 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
         return $service;
     }
 
+    /**
+     * Checks whether an object manager manages the given class.
+     *
+     * Uses the same resolution as getManagerForClass(), including proxy classes.
+     */
+    public function hasManagerForClass(string $class): bool
+    {
+        return $this->getManagerForClass($class) !== null;
+    }
+
     public function getManagerForClass(string $class): ObjectManager|null
     {
         if ($this->proxyInterfaceName !== null) {
