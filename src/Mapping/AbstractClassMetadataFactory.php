@@ -458,3 +458,4 @@ abstract class AbstractClassMetadataFactory implements ClassMetadataFactory
         };
     }
 }
+// oe2-support

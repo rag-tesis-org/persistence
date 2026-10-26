@@ -46,3 +46,4 @@ class LoadClassMetadataEventArgs extends EventArgs
         return $this->objectManager;
     }
 }
+// oe2-support

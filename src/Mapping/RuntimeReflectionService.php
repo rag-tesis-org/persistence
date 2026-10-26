@@ -86,3 +86,4 @@ class RuntimeReflectionService implements ReflectionService
         return $reflectionMethod->isPublic();
     }
 }
+// oe2-support

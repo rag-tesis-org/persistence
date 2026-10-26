@@ -237,3 +237,4 @@ class SymfonyFileLocator implements FileLocator
         return $realpath;
     }
 }
+// oe2-support

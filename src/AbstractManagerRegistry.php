@@ -218,3 +218,4 @@ abstract class AbstractManagerRegistry implements ManagerRegistry
         return $this->getManagerForClass($persistentObject) ?? $this->getManager();
     }
 }
+// oe2-support
