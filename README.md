@@ -15,3 +15,5 @@ The Doctrine Persistence project is a library that provides common abstractions 
   [CodeCov 4.2]: https://codecov.io/gh/doctrine/persistence/branch/4.2.x
   [GA 4.2 image]: https://github.com/doctrine/persistence/actions/workflows/continuous-integration.yml/badge.svg?branch=4.2.x
   [GA 4.2]: https://github.com/doctrine/persistence/actions/workflows/continuous-integration.yml?branch=4.2.x
+
+<!-- oe2: indexación del commit congelado (EV-OE2-F0) -->
