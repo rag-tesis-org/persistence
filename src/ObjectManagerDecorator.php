@@ -86,3 +86,4 @@ abstract class ObjectManagerDecorator implements ObjectManager
         return $this->wrapped->contains($object);
     }
 }
+// oe2-support

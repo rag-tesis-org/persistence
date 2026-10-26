@@ -63,3 +63,4 @@ class RuntimeReflectionProperty extends ReflectionProperty
         $object->__setInitialized(false);
     }
 }
+// oe2-support

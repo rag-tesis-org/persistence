@@ -141,3 +141,4 @@ final class FileClassLocator implements ClassLocator
         return new self($filesIterator);
     }
 }
+// oe2-support
